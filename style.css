@@ -1,5 +1,59 @@
-body{
-    dislay:flex;
+body {
+    display:flex;
     flex-wrap: wrap;
 }
 
+div {
+    flex-basis: 15%;
+    flex-grow: 1;
+    height: 33.33vh;
+    background-color: black;
+    border: 4px solid white;
+
+
+
+ 
+}
+/* mobile version */
+@media(orientation: portrait){
+    div{
+        flex-basis: 30%;
+        height:15.66vh;
+    }
+}
+/* Random color class */
+.red{
+    background-color: red;
+}
+.blue{
+    background-color:blue;
+}
+.yellow{
+    background-color: yellow;
+
+}
+.green{
+    background-color: green;
+}
+.brown{
+    background-color: brown;
+}
+
+.lightgreen{
+    background-color: lightgreen;
+}
+.cadetblue{
+    background-color: cadetblue;
+}
+.violet{
+    background-color: violet;
+}
+
+/* when u click 2 same element its gona make it unclick */
+.off{
+    background-color: #eeeeee;
+}
+/* hide element when shot was false */
+.hidden{
+    background-color: #000;
+}
