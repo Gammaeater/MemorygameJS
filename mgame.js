@@ -31,14 +31,46 @@ const clickCard = function () {
 // checkin active card
 
     if(activeCards.length === 0 ) {
-        activeCards[0] == activeCard;
+        activeCards[0] = activeCard;
         return;
     }
 
-    else{
+    else {
+        cards.forEach(card => {
+            card.removeEventListener("click",clickCard)
+        })
+        activeCards[1] = activeCard;
+
+            // opoznienie funkcji 
+        setTimeout(function(){
+            if (activeCards[0].className === activeCards[1].className) 
+            {
+                activeCards.forEach(card => card.classList.add("off"))
+                gameResult++;
+                if(gameResult == gamePairs) {
+                    const entTime = new Date().getTime();
+                    const gameTime = (entTime - startTime)/1000
+                     alert(`Congratulation ! Your score is :${gameTime} second`)
+                     location.reload();
+                }
+            }
+            else {
+                activeCards.forEach(card => card.classList.add("hidden"))
+            }
+
+            activeCard= "";
+            activeCards.length = 0;
+            cards.forEach(card => card.addEventListener("click",clickCard))
+
+            
+
+        
+
+        },500)
+        
 
     }
-}
+};
 
 const init = function() {
     cards.forEach( card=> {
